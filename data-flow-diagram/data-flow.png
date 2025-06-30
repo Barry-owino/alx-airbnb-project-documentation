@@ -1,0 +1,90 @@
+Simple Data Flow Diagram: Airbnb Clone Backend
+This diagram uses common DFD notation to visualize the movement of data for key operations.
+
+DFD Notations Used:
+External Entity: [Entity Name] (Represents a source or destination of data outside the system)
+
+Process: (Process Name) (Transforms data)
+
+Data Store: [---Data Store Name---] (Data at rest)
+
+Data Flow: -----> (Direction of data movement)
+
+Core Data Flows:
+1. User Registration Flow
+[Guest]
+    |
+    | User Registration Data
+    V
+(User Management)
+    |
+    | New User Profile
+    V
+[---User Data---]
+    ^
+    | User Confirmation
+    |
+(Notification System)
+    |
+    | Confirmation Email
+    V
+[Email Service]
+
+2. Property Listing Flow
+[Host]
+    |
+    | Property Details
+    V
+(Property Listing Management)
+    |
+    | New Property Record
+    V
+[---Property Data---]
+    ^
+    | Listing Confirmation
+    |
+(Notification System)
+    |
+    | Confirmation Notification
+    V
+[Host]
+
+3. Property Booking Flow
+[Guest]
+    |
+    | Search Criteria
+    V
+(Search & Filtering)
+    |
+    | Property Search Results
+    V
+[Guest] <----- [---Property Data---]
+    |
+    | Booking Request
+    V
+(Booking Management)
+    |
+    | Booking Details (to be confirmed)
+    V
+(Payment Processing)
+    |
+    | Payment Request
+    V
+[Payment Gateway]
+    |
+    | Payment Confirmation
+    V
+(Payment Processing)
+    |
+    | Confirmed Booking Record
+    V
+[---Booking Data---]
+    ^
+    | Booking Confirmation
+    |
+(Notification System)
+    |
+    | Confirmation Email
+    V
+[Email Service]
+
