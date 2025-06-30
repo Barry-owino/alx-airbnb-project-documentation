@@ -1,0 +1,86 @@
+Flowchart: Property Booking Process
+This flowchart visualizes the detailed steps and data flow involved when a guest books a property in the Airbnb Clone backend system.
+
+Flowchart Notations Used:
+Start/End: (O)
+
+Process: [Process Name]
+
+Decision: <Decision Question?>
+
+Data Store: {---Data Store Name---}
+
+External Entity: [External Entity Name]
+
+Data Flow/Control Flow: ----->
+
+Property Booking Flowchart:
+(O)
+Start
+ |
+ V
+[Guest]
+ |
+ | (Input: Search Criteria)
+ V
+[Search & Filtering]
+ |
+ | (Data: Property Data Request)
+ V
+{---Property Data---}
+ ^
+ | (Data: Property Search Results)
+ |
+ V
+<Properties Found?> --- No ---> [Guest] (Output: "No properties found")
+ |                                     |
+ Yes                                   V
+ |                                   (O)
+ V                                   End
+[Guest]
+ |
+ | (Output: Display Search Results)
+ | (Input: Booking Request - Property ID, Dates)
+ V
+[Booking Management]
+ |
+ | (Data: Check Availability, Validate Dates)
+ V
+<Dates Available & Valid?> --- No ---> [Guest] (Output: "Dates unavailable/invalid")
+ |                                          |
+ Yes                                        V
+ |                                        (O)
+ V                                        End
+[Payment Processing]
+ |
+ | (Data: Payment Request)
+ V
+[Payment Gateway]
+ ^
+ | (Data: Payment Confirmation/Failure)
+ |
+ V
+<Payment Successful?> --- No ---> [Guest] (Output: "Payment failed")
+ |                                     |
+ Yes                                   V
+ |                                   (O)
+ V                                   End
+[Booking Management]
+ |
+ | (Data: Confirmed Booking Record)
+ V
+{---Booking Data---}
+ ^
+ | (Data: Booking Confirmation Details)
+ |
+ V
+[Notification System]
+ |
+ | (Data: Confirmation Email Content)
+ V
+[Email Service]
+ |
+ V
+(O)
+End
+
